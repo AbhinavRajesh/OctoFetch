@@ -7,30 +7,37 @@ import styles from "./App.module.css";
 class App extends Component {
   state = {
     data: {},
+    userInput: "",
   };
   async componentDidMount() {
-    fetchData()
-    .then(newData => {
-      if(newData === undefined) {
-        console.log('User not found')
-        this.setState({data: {message: '404'}})
-      } else {
-        console.log(newData)
-        this.setState({data:newData})
-      }
-    })
-    .catch(err => console.log(err))
+    const fetchedData = await fetchData();
+    this.setState({ data: fetchedData });
   }
 
-  profileChange = async (username) => {
-    const fetchedData = await fetchData(username);
-    this.setState({ data: fetchedData });
+  handleSearch = (e) => {
+    this.setState({ userInput: e }, () =>
+      console.log(`UserInput: ${this.state.userInput}`)
+    );
+  };
+
+  profileChange = async () => {
+    const fetchedData = await fetchData(this.state.userInput);
+    if (fetchedData === undefined) {
+      console.log("User not found");
+      this.setState({ data: { message: "404" } });
+    } else {
+      console.log(fetchedData);
+      this.setState({ data: fetchedData });
+    }
   };
 
   render() {
     return (
       <div className={styles.container}>
-        <Search profileChange={this.profileChange} />
+        <Search
+          profileChange={this.profileChange}
+          handleSearch={this.handleSearch}
+        />
         <Stats data={this.state.data} />
       </div>
     );

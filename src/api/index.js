@@ -5,16 +5,16 @@ const url = "https://api.github.com/users";
 export const fetchData = async (username) => {
   let changeableUrl = url;
   if (username) {
+    console.log(`In the if statement in API with username: ${username}`);
     changeableUrl = `${url}/${username}`;
   } else {
-    changeableUrl = `${url}/asfdafgas`; // For debugging purpose
+    changeableUrl = `${url}/example`;
   }
   try {
     const { data } = await axios.get(changeableUrl);
-    if (data.message !== undefined) {
+    if (data.message) {
       const modifiedData = {
         message: data.message,
-        name: undefined,
       };
       return modifiedData;
     }
@@ -24,7 +24,7 @@ export const fetchData = async (username) => {
       url: data.html_url,
       repos: data.repos_url,
       name: data.name,
-      comppany: data.company,
+      company: data.company,
       blog: data.blog,
       location: data.location,
       bio: data.bio,
@@ -33,6 +33,7 @@ export const fetchData = async (username) => {
       following: data.following,
       created: data.created_at,
       total_repos: data.public_repos,
+      message: "",
     };
     return modifiedData;
   } catch (error) {
