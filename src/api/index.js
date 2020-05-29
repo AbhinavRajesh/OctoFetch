@@ -7,7 +7,7 @@ export const fetchData = async (username) => {
   if (username) {
     changeableUrl = `${url}/${username}`;
   } else {
-    changeableUrl = `${url}/ijadfbaidfihsbdijfnsdj`; // For debugging purpose
+    changeableUrl = `${url}/asfdafgas`; // For debugging purpose
   }
   try {
     const { data } = await axios.get(changeableUrl);

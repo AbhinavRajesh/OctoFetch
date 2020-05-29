@@ -9,8 +9,17 @@ class App extends Component {
     data: {},
   };
   async componentDidMount() {
-    const fetchedData = await fetchData();
-    this.setState({ data: fetchedData });
+    fetchData()
+    .then(newData => {
+      if(newData === undefined) {
+        console.log('User not found')
+        this.setState({data: {message: '404'}})
+      } else {
+        console.log(newData)
+        this.setState({data:newData})
+      }
+    })
+    .catch(err => console.log(err))
   }
 
   profileChange = async (username) => {
