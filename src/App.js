@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { fetchData } from "./api";
+import { fetchData, fetchRepos } from "./api";
 
-import { Stats, Search } from "./components";
+import { Stats, Search, Repos } from "./components";
 import styles from "./App.module.css";
 
 class App extends Component {
   state = {
     data: {},
+    repos: [],
     userInput: "",
   };
   async componentDidMount() {
-    const fetchedData = await fetchData();
+    const fetchedData = await fetchData("example");
     this.setState({ data: fetchedData });
   }
 
@@ -26,8 +27,14 @@ class App extends Component {
       console.log("User not found");
       this.setState({ data: { message: "404" } });
     } else {
-      console.log(fetchedData);
+      const fetchedRepos = await fetchRepos(this.state.userInput);
       this.setState({ data: fetchedData });
+      if (fetchedRepos) {
+        this.setState({ repos: fetchedRepos }, () =>
+          console.log(this.state.repos)
+        );
+        console.log(fetchedRepos);
+      }
     }
   };
 
@@ -39,6 +46,7 @@ class App extends Component {
           handleSearch={this.handleSearch}
         />
         <Stats data={this.state.data} />
+        <Repos repos={this.state.repos} />
       </div>
     );
   }

@@ -3,15 +3,11 @@ import axios from "axios";
 const url = "https://api.github.com/users";
 
 export const fetchData = async (username) => {
-  let changeableUrl = url;
-  if (username) {
-    console.log(`In the if statement in API with username: ${username}`);
-    changeableUrl = `${url}/${username}`;
-  } else {
-    changeableUrl = `${url}/example`;
-  }
+  console.log(`in API with username: ${username}`);
+  const changeableUrl = `${url}/${username}`;
   try {
     const { data } = await axios.get(changeableUrl);
+    console.log(data.message);
     if (data.message) {
       const modifiedData = {
         message: data.message,
@@ -39,4 +35,20 @@ export const fetchData = async (username) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const fetchRepos = async (username) => {
+  const { data } = await axios.get(`${url}/${username}`);
+  const check = data.public_repos;
+  var urlArray = [];
+  if (check === 0) {
+    urlArray = [];
+    return 0;
+  }
+  const repos = await axios.get(`${url}/${username}/repos`);
+  for (var i = 0; i < check; i++) {
+    urlArray[i] = repos.data[i].html_url;
+    console.log(repos.data[i].html_url);
+  }
+  return urlArray;
 };
