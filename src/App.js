@@ -34,6 +34,8 @@ class App extends Component {
           console.log(this.state.repos)
         );
         console.log(fetchedRepos);
+      } else {
+        this.setState({ repos: "" });
       }
     }
   };
@@ -46,7 +48,7 @@ class App extends Component {
           handleSearch={this.handleSearch}
         />
         <Stats data={this.state.data} />
-        <Repos repos={this.state.repos} />
+        <Repos repos={this.state.repos} username={this.state.data.username} />
       </div>
     );
   }

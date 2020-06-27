@@ -47,8 +47,8 @@ export const fetchRepos = async (username) => {
   }
   const repos = await axios.get(`${url}/${username}/repos`);
   for (var i = 0; i < check; i++) {
-    urlArray[i] = repos.data[i].html_url;
-    console.log(repos.data[i].html_url);
+    urlArray[i] = repos.data[i];
+    console.log(repos.data[i]);
   }
   return urlArray;
 };

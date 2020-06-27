@@ -1,0 +1,63 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: rgb(10, 2, 61);
+}
+.container img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 8px solid rgb(20, 74, 252);
+}
+.container a {
+  color: rgb(20, 74, 252);
+  text-decoration: none;
+  font-size: 24px;
+  border: 2px solid transparent;
+}
+.container a:hover {
+  border-bottom: 2px solid rgb(20, 74, 252);
+}
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px;
+  justify-content: space-evenly;
+  color: rgb(82, 82, 255);
+}
+.details p {
+  padding: 0 15px;
+}
+.details p span {
+  color: whitesmoke;
+}
+.infocards {
+  display: flex;
+}
+.infocard {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 70px;
+  padding: 20px;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20, 74, 252, 0.315);
+  border-radius: 3px;
+}
+.infocard p {
+  margin: 0;
+  padding: 0;
+}
+.infonumber {
+  font-size: 24px;
+}
+.infoname {
+  font-size: 12px;
+  text-transform: uppercase;
+}
