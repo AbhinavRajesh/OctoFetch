@@ -17,6 +17,7 @@ const Repos = ({ repos, username }) => {
       <h2>Repositories</h2>
       <div className={styles.repocontainer}>
         {repos.map((repo, index) => (
+          repo === undefined ? null :
           <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
             <div className={styles.repocard} key={index}>
               <div className={styles.reponame}>
