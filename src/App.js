@@ -26,6 +26,7 @@ class App extends Component {
     if (fetchedData === undefined) {
       console.log("User not found");
       this.setState({ data: { message: "404" } });
+      this.setState({ repos: ""});
     } else {
       const fetchedRepos = await fetchRepos(this.state.userInput);
       this.setState({ data: fetchedData });

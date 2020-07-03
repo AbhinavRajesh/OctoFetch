@@ -31,6 +31,10 @@
   padding: 10px 20px;
   margin: 20px;
   border-radius: 3px;
+  transition: 0.5s all ease-in-out;
+}
+.repocard:hover {
+  transform: scale(1.1);
 }
 .repodetail {
   display: flex;
@@ -38,11 +42,11 @@
 }
 .reponame {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .reponame p {
-  font-size: 20px;
+  font-size: 18px;
 }
 .reponame p i {
   padding: 5px;

@@ -10,6 +10,7 @@ const Stats = ({ data }) => {
       <div className={styles.container}>
         <img src={data.avatar} alt={data.username} />
         <h2>{data.name}</h2>
+        {console.log(data.url)}
         <a href={data.url} target="_blank" rel="noopener noreferrer">
           @{data.username}
         </a>
@@ -45,19 +46,28 @@ const Stats = ({ data }) => {
         {condition ? (
           <div></div>
         ) : (
-          <div className={styles.details}>
-            <p>
-              Name : <span>{data.name}</span>
-            </p>
-            <p>
-              Username: <span>{data.username}</span>
-            </p>
-            {data.blog ? (
+            <div className={styles.details}>
               <p>
-                Blog : <span>{data.blog}</span>
+                Name : <span>{data.name}</span>
               </p>
-            ) : null}
-          </div>
+              <p>
+                Username: <span>{data.username}</span>
+              </p>
+              {data.blog && (
+                <p>
+                  Blog : <span>{data.blog}</span>
+                </p>
+              )}
+              {data.twitter && (
+                <p>Twitter: <a href={`https://twitter.com/${data.twitter}`} target="_blank" rel="noopener noreferrer"><span>{data.twitter}</span></a></p>
+              )}
+              { data.bio && (
+                <div className={styles.bio}>
+                  <p>Bio: <span>{data.bio}</span>
+                  </p>
+                </div>
+              )}
+            </div>
         )}
       </div>
     );

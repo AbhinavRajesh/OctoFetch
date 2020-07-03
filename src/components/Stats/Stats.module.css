@@ -35,8 +35,16 @@
 .details p span {
   color: whitesmoke;
 }
+.details p a {
+  font-size: 16px;
+}
 .infocards {
   display: flex;
+}
+.bio {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 .infocard {
   display: flex;
