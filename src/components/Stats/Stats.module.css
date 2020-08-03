@@ -24,7 +24,7 @@
 }
 .details {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 100px;
   justify-content: space-evenly;
   color: rgb(82, 82, 255);
@@ -40,6 +40,11 @@
 }
 .infocards {
   display: flex;
+}
+.topDetail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .bio {
   display: flex;
@@ -68,4 +73,14 @@
 .infoname {
   font-size: 12px;
   text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+  .infocard {
+    height: 40px;
+    width: 60px;
+  }
+  .details {
+    padding: 70px 30px;
+  }
 }

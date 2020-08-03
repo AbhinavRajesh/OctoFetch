@@ -65,3 +65,16 @@
 .reposize {
   display: flex;
 }
+
+@media (max-width: 500px) {
+  .repocard {
+    margin: 20px 0;
+  }
+  .repocard:hover {
+    transform: none;
+  }
+  .temp {
+    text-align: center;
+    padding: 70px 30px;
+  }
+}

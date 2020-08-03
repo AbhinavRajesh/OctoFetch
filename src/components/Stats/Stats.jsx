@@ -47,6 +47,7 @@ const Stats = ({ data }) => {
           <div></div>
         ) : (
             <div className={styles.details}>
+              <div className={styles.topDetail}>
               <p>
                 Name : <span>{data.name}</span>
               </p>
@@ -61,6 +62,7 @@ const Stats = ({ data }) => {
               {data.twitter && (
                 <p>Twitter: <a href={`https://twitter.com/${data.twitter}`} target="_blank" rel="noopener noreferrer"><span>{data.twitter}</span></a></p>
               )}
+              </div>
               { data.bio && (
                 <div className={styles.bio}>
                   <p>Bio: <span>{data.bio}</span>
@@ -86,26 +88,6 @@ const Stats = ({ data }) => {
       </div>
     );
   }
-  // if (!data.username) {
-  //   if (!data.message) {
-  //     console.log("Loading...");
-  //     return <h1>Loading</h1>;
-  //   } else {
-  //     console.log("User Not Found!");
-  //     return <h1>User Not Found!</h1>;
-  //   }
-  // } else {
-  //   console.log(`User: ${data.username}`);
-  //   return (
-  //     <div className="container">
-  //       <h1>Name of the user: {data.username}</h1>
-  //       <h1>Followers of the user: {data.followers}</h1>
-  //       <h1>Following of the user: {data.following}</h1>
-  //       <h1>Blog of the user: {data.blog}</h1>
-  //       <h1>Repos of the user: {data.total_repos}</h1>
-  //     </div>
-  //   );
-  // }
 };
 
 export default Stats;

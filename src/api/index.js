@@ -52,3 +52,9 @@ export const fetchRepos = async (username) => {
   }
   return urlArray;
 };
+
+export const fetchRemainingRequests = async () => {
+  const {data}= await axios.get("https://api.github.com/rate_limit");
+  console.log(data.rate);
+  return data.rate;
+}

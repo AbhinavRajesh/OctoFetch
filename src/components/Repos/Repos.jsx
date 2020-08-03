@@ -17,33 +17,34 @@ const Repos = ({ repos, username }) => {
       <h2>Repositories</h2>
       <div className={styles.repocontainer}>
         {repos.map((repo, index) => (
-          repo === undefined ? null :
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            <div className={styles.repocard} key={index}>
-              <div className={styles.reponame}>
-                <p>
-                  <i className="fas fa-book"></i>
-                  {repo.name}
-                </p>
-              </div>
-              <div className={styles.repodetail}>
-                <div>
-                  {repo.language ? (
-                    <span className={styles.repolanguage}>{repo.language}</span>
-                  ) : null}
-                  <span className={styles.repostars}>
-                    <i className="fas fa-star"></i>
-                    {repo.stargazers_count}
-                  </span>
-                  <span className={styles.forks}>
-                    <i className="fas fa-code-branch"></i>
-                    {repo.forks}
-                  </span>
+          repo && (
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+              <div className={styles.repocard} key={index}>
+                <div className={styles.reponame}>
+                  <p>
+                    <i className="fas fa-book"></i>
+                    {repo.name}
+                  </p>
                 </div>
-                <span className={styles.reposize}>{repo.size} KB</span>
+                <div className={styles.repodetail}>
+                  <div>
+                    {repo.language ? (
+                      <span className={styles.repolanguage}>{repo.language}</span>
+                    ) : null}
+                    <span className={styles.repostars}>
+                      <i className="fas fa-star"></i>
+                      {repo.stargazers_count}
+                    </span>
+                    <span className={styles.forks}>
+                      <i className="fas fa-code-branch"></i>
+                      {repo.forks}
+                    </span>
+                  </div>
+                  <span className={styles.reposize}>{repo.size} KB</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          )
         ))}
       </div>
     </div>
