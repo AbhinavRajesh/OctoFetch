@@ -36,6 +36,9 @@ footer .top, footer .bottom {
 }
 
 @media (max-width: 500px) {
+  body {
+    min-width: 360px;
+  }
   .requests {
     font-size: 12px;
   }

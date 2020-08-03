@@ -76,7 +76,7 @@ const Stats = ({ data }) => {
   } else if (data.message === "404") {
     console.log("User Not found!");
     return (
-      <div className={styles.container}>
+      <div className={styles.notFound}>
         <h1>User Not Found!</h1>
       </div>
     );

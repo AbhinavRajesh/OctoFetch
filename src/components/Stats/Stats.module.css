@@ -74,6 +74,17 @@
   font-size: 12px;
   text-transform: uppercase;
 }
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(10, 2, 61);
+  min-height: 30vh;
+}
+.notFound h1 {
+  margin: 0;
+  font-weight: 400;
+}
 
 @media (max-width: 500px) {
   .infocard {
@@ -84,3 +95,4 @@
     padding: 70px 30px;
   }
 }
+
