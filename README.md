@@ -14,7 +14,7 @@ A Nicer look at GitHub Profile
 
 ### Installation
 
-1. Clone the Repository
+1. Clone the Repository to your local machine
     ```shell
     git clone https://github.com/AbhinavRajesh/OctoFetch.git
     ```
